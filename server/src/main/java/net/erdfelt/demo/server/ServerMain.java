@@ -33,6 +33,12 @@ public class ServerMain
             resp.setContentType("text/html");
             resp.setCharacterEncoding("utf-8");
             
+            String forcedContentLength = req.getParameter("forced-len");
+            if(forcedContentLength != null)
+            {
+                resp.setContentLength(Integer.parseInt(forcedContentLength));
+            }
+            
             resp.getWriter().println("<html><body><h1>Heading</h1><p>Some Text</p></body></html>");
         }
     }
